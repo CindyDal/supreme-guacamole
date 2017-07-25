@@ -2,11 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Hello World</title>
-    <script src="sdk/scripts/VSS.SDK.js"></script>
+    <script src="lib/VSS.SDK.min.js"></script>
 </head>
 <body>
-    <script type="text/javascript">VSS.init();</script>
+    <script>
+
+    // Initialize
+    VSS.init({
+        usePlatformScripts: true, 
+        usePlatformStyles: true
+    });
+
+    // Register callback to get called when initial handshake completed
+    VSS.ready(function() {
+        // Start using VSS
+    });
+
+    </script>
     <h1>Hello World</h1>
-    <script type="text/javascript">VSS.notifyLoadSucceeded();</script>
 </body>
 </html>

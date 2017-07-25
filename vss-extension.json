@@ -11,11 +11,11 @@
                 }
             ],
         "icons": {
-            "default": "images/logo.png"
+            "default": "static/images/logo.png"
          },
         "contributions": [
             {
-                "id": "Fabrikam.HelloWorld",
+                "id": "CindyB.PlanningPoker",
                 "type": "ms.vss-web.hub",
                 "description": "Adds a 'Planning poker' hub to the Work hub group.",
                 "targets": [
@@ -33,16 +33,18 @@
         ],
         "files": [
             {
-                "path": "index.html", "addressable": true
+                "path": "static", "addressable": true
             },
             {
                 "path": "scripts", "addressable": true
             },
             {
-                "path": "sdk/scripts", "addressable": true
+                "path": "index.html", "addressable": true
             },
             {
-                "path": "images/logo.png", "addressable": true
+                "path": "sdk/node_modules/vss-web-extension-sdk/lib",
+                "addressable": true,
+                "packagePath": "lib"
             }
         ]
     }
