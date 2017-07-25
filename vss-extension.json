@@ -1,0 +1,48 @@
+{
+        "manifestVersion": 1,
+        "id": "planning-poker",
+        "version": "0.1.0",
+        "name": "Planning poker",
+        "description": "A planning poker Visual Studio Services extension.",
+        "publisher": "cindyb",
+        "targets": [
+            {
+                "id": "Microsoft.VisualStudio.Services"
+                }
+            ],
+        "icons": {
+            "default": "images/logo.png"
+         },
+        "contributions": [
+            {
+                "id": "Fabrikam.HelloWorld",
+                "type": "ms.vss-web.hub",
+                "description": "Adds a 'Planning poker' hub to the Work hub group.",
+                "targets": [
+                    "ms.vss-work-web.work-hub-group"
+                    ],
+                "properties": {
+                    "name": "Planning poker",
+                    "order": 99,
+                    "uri": "index.html"
+                }
+            }
+        ],
+        "scopes": [
+            "vso.work"
+        ],
+        "files": [
+            {
+                "path": "index.html", "addressable": true
+            },
+            {
+                "path": "scripts", "addressable": true
+            },
+            {
+                "path": "sdk/scripts", "addressable": true
+            },
+            {
+                "path": "images/logo.png", "addressable": true
+            }
+        ]
+    }
