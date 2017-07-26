@@ -24,7 +24,7 @@
                 "properties": {
                     "name": "Planning poker",
                     "order": 99,
-                    "uri": "index.html"
+                    "uri": "static/index.html"
                 }
             }
         ],
@@ -33,13 +33,15 @@
         ],
         "files": [
             {
-                "path": "static", "addressable": true
+                "path": "dist",
+                "addressable": true
+            },
+            {
+                "path": "static",
+                "addressable": true
             },
             {
                 "path": "scripts", "addressable": true
-            },
-            {
-                "path": "index.html", "addressable": true
             },
             {
                 "path": "sdk/node_modules/vss-web-extension-sdk/lib",
