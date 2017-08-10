@@ -39,15 +39,7 @@
         {
             "path": "context.html",
             "addressable": true
-        },       
-        {
-            "path": "contextForm.html",
-            "addressable": true
-        },       
-        {
-            "path": "main.html",
-            "addressable": true
-        },     
+        },        
         {
             "path": "node_modules/vss-web-extension-sdk/lib",
             "addressable": true
