@@ -1,52 +1,85 @@
 {
-        "manifestVersion": 1,
-        "id": "planning-poker",
-        "version": "0.1.0",
-        "name": "Planning poker",
-        "description": "A planning poker Visual Studio Services extension.",
-        "publisher": "cindyb",
-        "targets": [
-            {
-                "id": "Microsoft.VisualStudio.Services"
-                }
+    "manifestVersion": 1,
+    "id": "planning-poker",
+    "version": "0.0.0",
+    "name": "Planning poker",
+    "description": "Extension for planning poker",
+    "publisher": "CindyB",
+    "links": {
+        "learn": {
+            "uri": "https://github.com/CindyB/supreme-guacamole"
+        }
+    },
+    "icons": {
+        "default": "images/fabrikam-logo.png"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "details.md"
+        }
+    }, 
+    "branding": {
+        "color": "rgb(48, 197, 51)",
+        "theme": "dark"
+    },       
+    "files": [
+        {
+            "path": "scripts",
+            "addressable": true
+        },
+        {
+            "path": "images",
+            "addressable": true
+        },
+        {
+            "path": "context.html",
+            "addressable": true
+        },       
+        {
+            "path": "contextForm.html",
+            "addressable": true
+        },       
+        {
+            "path": "main.html",
+            "addressable": true
+        },     
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true
+        }    
+    ],
+    "contributions": [
+        {
+            "id": "queries-hub-tab",
+            "type": "ms.vss-web.tab",
+            "description": "Adds a tab to the Queries hub",
+            "targets": [
+                "ms.vss-work-web.query-tabs"
             ],
-        "icons": {
-            "default": "static/images/logo.png"
-         },
-        "contributions": [
-            {
-                "id": "CindyB.PlanningPoker",
-                "type": "ms.vss-web.hub",
-                "description": "Adds a 'Planning poker' hub to the Work hub group.",
-                "targets": [
-                    "ms.vss-work-web.work-hub-group"
-                    ],
-                "properties": {
-                    "name": "Planning poker",
-                    "order": 99,
-                    "uri": "static/index.html"
-                }
+            "properties": {
+                "uri": "context.html",
+                "title": "Planning poker",
+                "name": "Planning poker",
+                "dynamic": true
             }
-        ],
-        "scopes": [
-            "vso.work"
-        ],
-        "files": [
-            {
-                "path": "dist",
-                "addressable": true
-            },
-            {
-                "path": "static",
-                "addressable": true
-            },
-            {
-                "path": "scripts", "addressable": true
-            },
-            {
-                "path": "sdk/node_modules/vss-web-extension-sdk/lib",
-                "addressable": true,
-                "packagePath": "lib"
+        },
+        {
+            "id": "work-hub",
+            "type": "ms.vss-web.hub",
+            "description": "Custom hub under the Work hub group",
+            "targets": [
+                "ms.vss-work-web.work-hub-group"
+            ],
+            "properties": {
+                "name": "Planning poker",
+                "order": 100,
+                "uri": "context.html"
             }
-        ]
-    }
+        }
+    ]
+}
