@@ -29,21 +29,27 @@
     },       
     "files": [
         {
-            "path": "scripts",
-            "addressable": true
-        },
-        {
             "path": "images",
             "addressable": true
         },
         {
-            "path": "context.html",
+            "path": "index.html",
             "addressable": true
         },        
         {
             "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        },
+        {
+            "path": "css",
             "addressable": true
-        }    
+        },
+        {
+            "path": "dist",
+            "addressable": true,
+            "packagePath": "scripts"
+        }
     ],
     "contributions": [
         {
@@ -54,10 +60,9 @@
                 "ms.vss-work-web.query-tabs"
             ],
             "properties": {
-                "uri": "context.html",
+                "uri": "index.html",
                 "title": "Planning poker",
-                "name": "Planning poker",
-                "dynamic": true
+                "name": "Planning poker"
             }
         },
         {
@@ -70,7 +75,7 @@
             "properties": {
                 "name": "Planning poker",
                 "order": 100,
-                "uri": "context.html"
+                "uri": "index.html"
             }
         }
     ]
