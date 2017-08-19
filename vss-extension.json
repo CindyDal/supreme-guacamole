@@ -1,82 +1,101 @@
 {
-    "manifestVersion": 1,
-    "id": "planning-poker",
-    "version": "0.0.0",
-    "name": "Planning poker",
-    "description": "Extension for planning poker",
-    "publisher": "CindyB",
-    "links": {
-        "learn": {
-            "uri": "https://github.com/CindyB/supreme-guacamole"
-        }
+  "manifestVersion": 1,
+  "id": "supreme-guacamole",
+  "version": "0.1.3",
+  "name": "Planning poker",
+  "scopes": [],
+  "description": "Estimate with your team your coming work.",
+  "publisher": "CindyB",
+  "galleryFlags": [
+    "Preview"
+  ],
+  "icons": {
+    "default": "static/images/logo.png"
+  },
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "demands": [
+    "api-version/2.0"
+  ],
+  "tags": [
+    "Estimation",
+    "Team"
+  ],
+  "screenshots": [
+    {
+      "path": "static/images/screen1.png"
+    }
+  ],
+  "content": {
+    "license": {
+      "path": "license.md"
     },
-    "icons": {
-        "default": "images/fabrikam-logo.png"
+    "details": {
+      "path": "overview.md"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/CindyB/supreme-guacamole"
+  },
+  "branding": {
+    "color": "rgb(48, 197, 51)",
+    "theme": "dark"
+  },
+  "files": [
+    {
+      "path": "dist",
+      "addressable": true
     },
-    "targets": [
-        {
-            "id": "Microsoft.VisualStudio.Services"
-        }
-    ],
-    "content": {
-        "details": {
-            "path": "details.md"
-        }
-    }, 
-    "branding": {
-        "color": "rgb(48, 197, 51)",
-        "theme": "dark"
-    },       
-    "files": [
-        {
-            "path": "images",
-            "addressable": true
-        },
-        {
-            "path": "index.html",
-            "addressable": true
-        },        
-        {
-            "path": "node_modules/vss-web-extension-sdk/lib",
-            "addressable": true,
-            "packagePath": "lib"
-        },
-        {
-            "path": "css",
-            "addressable": true
-        },
-        {
-            "path": "dist",
-            "addressable": true,
-            "packagePath": "scripts"
-        }
-    ],
-    "contributions": [
-        {
-            "id": "queries-hub-tab",
-            "type": "ms.vss-web.tab",
-            "description": "Adds a tab to the Queries hub",
-            "targets": [
-                "ms.vss-work-web.query-tabs"
-            ],
-            "properties": {
-                "uri": "index.html",
-                "title": "Planning poker",
-                "name": "Planning poker"
-            }
-        },
-        {
-            "id": "work-hub",
-            "type": "ms.vss-web.hub",
-            "description": "Custom hub under the Work hub group",
-            "targets": [
-                "ms.vss-work-web.work-hub-group"
-            ],
-            "properties": {
-                "name": "Planning poker",
-                "order": 100,
-                "uri": "index.html"
-            }
-        }
-    ]
+    {
+      "path": "static/images/logo.png",
+      "addressable": true
+    },
+    {
+      "path": "static/css/app.css",
+      "addressable": true
+    },
+    {
+      "path": "static/index.html",
+      "addressable": true
+    },
+    {
+      "path": "node_modules/vss-web-extension-sdk/lib",
+      "addressable": true,
+      "packagePath": "lib"
+    }
+
+
+  ],
+  "categories": [
+    "Plan and track"
+  ],
+  "contributions": [
+    {
+      "id": "supreme-guacamole-queries-hub-tab",
+      "type": "ms.vss-web.tab",
+      "description": "Adds a tab to the Queries hub",
+      "targets": [
+        "ms.vss-work-web.query-tabs"
+      ],
+      "properties": {
+        "uri": "static/index.html",
+        "title": "Planning poker",
+        "name": "Planning poker"
+      }
+    },
+    {
+      "id": "supreme-guacamole-work-hub",
+      "targets": [ "ms.vss-work-web.work-hub-group" ],
+      "type": "ms.vss-web.hub",
+      "properties": {
+        "name": "Planning poker",
+        "order": 100,
+        "uri": "static/index.html"
+      }
+    }
+  ]
 }
