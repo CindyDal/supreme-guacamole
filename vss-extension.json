@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "supreme-guacamole",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "name": "Planning poker",
   "scopes": [],
   "description": "Estimate with your team your coming work.",
@@ -23,11 +23,6 @@
   "tags": [
     "Estimation",
     "Team"
-  ],
-  "screenshots": [
-    {
-      "path": "static/images/screen1.png"
-    }
   ],
   "content": {
     "license": {

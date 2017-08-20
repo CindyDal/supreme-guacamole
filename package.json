@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "npm run lint && npm run clean && npm run webpack",
-    "webpack" : "webpack --progress --colors --config webpack.config.js --output-path ./dist -p",
+    "webpack": "webpack --progress --colors --config webpack.config.js --output-path ./dist -p",
     "postbuild": "npm run package",
     "package": "tfx extension create  --rev-version",
     "gallery-publish": "tfx extension publish --rev-version",
@@ -22,7 +22,6 @@
     "@types/jquery": "^2.0.34",
     "@types/q": "0.0.32",
     "vss-web-extension-sdk": "^2.117.0"
-    
   },
   "name": "vstsexthub",
   "private": true,
