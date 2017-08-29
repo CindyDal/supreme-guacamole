@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "supreme-guacamole",
-  "version": "0.1.23",
+  "version": "0.1.33",
   "name": "Planning poker",
   "scopes": ["vso.work_write"],
   "description": "Estimate with your team your coming work.",
@@ -91,6 +91,33 @@
         "order": 100,
         "uri": "static/index.html"
       }
+    },
+    {
+      "id": "sample-work-item-form-group",
+      "type": "ms.vss-work-web.work-item-form-group",
+      "description": "Custom work item form group",
+      "targets": [
+        "ms.vss-work-web.work-item-form"
+      ],
+      "properties": {
+        "name": "My Group",
+        "uri": "static/index.html",
+        "height": 600
+      },
+      "contributions": [
+        {
+          "id": "sample-work-item-form-page",
+          "type": "ms.vss-work-web.work-item-form-page",
+          "description": "Custom work item form page",
+          "targets": [
+            "ms.vss-work-web.work-item-form"
+          ],
+          "properties": {
+            "name": "My Page",
+            "uri": "static/index.html"
+          }
+        }
+      ]
     }
   ]
 }
