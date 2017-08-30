@@ -9,5 +9,12 @@ export class Player {
         this.input = document.createElement("input");
         this.input.id = "vote";
         this.element.appendChild(this.input);
+        // TODO Save on input
+
+        $("#vote").bind("input", this.vote);
+    }
+
+    private vote() {
+        console.log("My vote is : " + $(this).val().toString());
     }
 }
