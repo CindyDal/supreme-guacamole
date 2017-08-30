@@ -22,9 +22,7 @@ export class Moderator {
         this.startTimerButton.id = "startTimerBtn";
         this.startTimerButton.innerText = "Start";
         this.content.appendChild(this.startTimerButton);
-        $("#startTimerBtn").click(() => {
-            this.startTimer();
-        });
+        $("#startTimerBtn").click(this.startTimer());
 
         this.stopTimerButton = document.createElement("button");
         this.stopTimerButton.id = "stopTimerBtn";
