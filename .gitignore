@@ -27,6 +27,7 @@ bld/
 .vs/
 
 node_modules
+dist
 .vscode
 *.vsix
 
