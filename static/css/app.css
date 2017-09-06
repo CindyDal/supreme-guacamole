@@ -1,7 +1,8 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
+#resultsDiv {
+    width: 75%;
+    float:left;
 }
-
-span {
-    font-style: italic;
+#timerDiv {
+    width: 25%;
+    float:right;
 }

@@ -13,44 +13,54 @@ export class Moderator {
     timeSpan: HTMLElement;
     voteResults: HTMLElement;
     resultToCommit: HTMLElement;
+    timerDiv: HTMLElement;
+    resultsDiv: HTMLElement;
 
     constructor(element: HTMLElement) {
         this.content = element;
-        this.content.innerHTML += "Votes results :";
-
-        this.initializeHTMLElement(this.timeSpan, "span", "timeSpan", "");
-        // TODO Timer
-
-        this.initializeHTMLElement(this.startTimerButton, "button", "startTimerBtn", "Start");
-        $("#startTimerBtn").on("click", this.startTimer);
-
-        this.initializeHTMLElement(this.stopTimerButton, "button", "stopTimerBtn", "Stop");
-        $("#stopTimerBtn").on("click", this.stopTimer);
-
-        this.initializeHTMLElement(this.voteResults, "li", "voteResults", null);
+        // TODO Refactor
+        this.resultsDiv = document.createElement("div");
+        this.resultsDiv.id = "resultsDiv";
+        this.content.appendChild(this.resultsDiv);
+        // this.initializeHTMLElement(this.resultsDiv, "div", "resultsDiv", null, this.content);
+        this.resultsDiv.innerHTML += "Votes results :";
+        this.initializeHTMLElement(this.voteResults, "ul", "voteResults", null, this.resultsDiv);
         // TODO Show results
-
-        this.initializeHTMLElement(this.resultToCommit, "span", "resultToCommit", null);
+        this.initializeHTMLElement(this.resultToCommit, "span", "resultToCommit", null, this.resultsDiv);
         // TODO Show result
+        this.initializeHTMLElement(this.commitButton, "button", "commitBtn", "Commit", this.resultsDiv);
+        $("#commitBtn").on("click", this.commitResult);
 
-        this.initializeHTMLElement(this.commitButton, "button", "commitBtn", "Commit");
-        // TODO OnClick
+        this.timerDiv = document.createElement("div");
+        this.timerDiv.id = "timerDiv";
+        this.content.appendChild(this.timerDiv);
+        // this.initializeHTMLElement(this.timerDiv, "div", "timerDiv", null, this.content);
+        this.initializeHTMLElement(this.timeSpan, "span", "timeSpan", null, this.timerDiv);
+        // // TODO Timer
+        this.initializeHTMLElement(this.startTimerButton, "button", "startTimerBtn", "Start", this.timerDiv);
+        $("#startTimerBtn").on("click", this.startTimer);
+        this.initializeHTMLElement(this.stopTimerButton, "button", "stopTimerBtn", "Stop", this.timerDiv);
+        $("#stopTimerBtn").on("click", this.stopTimer);
     }
 
-    private initializeHTMLElement(element: HTMLElement, type: string, id: string, innerText: string) {
+    private initializeHTMLElement(element: HTMLElement, type: string, id: string, innerText: string, parent: HTMLElement) {
         element = document.createElement(type);
         element.id = id;
         element.innerText = innerText;
-        this.content.appendChild(element);
+        parent.appendChild(element);
     }
 
     private startTimer() {
         console.log("Start timer ");
-        this.timerToken = setInterval(() => this.timeSpan.innerHTML = new Date().toUTCString(), 500);
+        // this.timerToken = setInterval(() => this.timeSpan.innerHTML = new Date().toUTCString(), 500);
     }
 
     private stopTimer() {
         console.log("Stop timer");
-        clearTimeout(this.timerToken);
+        // clearTimeout(this.timerToken);
+    }
+
+    private commitResult() {
+        console.log("Commit result");
     }
 }
