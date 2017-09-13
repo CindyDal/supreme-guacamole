@@ -6,3 +6,7 @@
     width: 25%;
     float:right;
 }
+#timeSpan {
+    font-size : xx-large;
+    font-weight : bold;
+}

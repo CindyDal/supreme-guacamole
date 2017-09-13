@@ -7,18 +7,24 @@ import Q = require("q");
 export class Moderator {
     commitButton: HTMLElement;
     content: HTMLElement;
+    resultsDiv: HTMLElement;
+    resetTimerButton: HTMLElement;
+    resultToCommit: HTMLElement;
     startTimerButton: HTMLElement;
     stopTimerButton: HTMLElement;
+    timerCountdown: number;
+    timerDiv: HTMLElement;
     timerToken: number;
     timeSpan: HTMLElement;
     voteResults: HTMLElement;
-    resultToCommit: HTMLElement;
-    timerDiv: HTMLElement;
-    resultsDiv: HTMLElement;
 
     constructor(element: HTMLElement) {
         this.content = element;
-        // TODO Refactor
+        this.initializeResultsDiv();
+        this.initializeTimerDiv();
+    }
+
+    private initializeResultsDiv() {
         this.resultsDiv = document.createElement("div");
         this.resultsDiv.id = "resultsDiv";
         this.content.appendChild(this.resultsDiv);
@@ -26,21 +32,25 @@ export class Moderator {
         this.resultsDiv.innerHTML += "Votes results :";
         this.initializeHTMLElement(this.voteResults, "ul", "voteResults", null, this.resultsDiv);
         // TODO Show results
-        this.initializeHTMLElement(this.resultToCommit, "span", "resultToCommit", null, this.resultsDiv);
+        this.initializeHTMLElement(this.resultToCommit, "span", "resultToCommit", "8", this.resultsDiv);
         // TODO Show result
         this.initializeHTMLElement(this.commitButton, "button", "commitBtn", "Commit", this.resultsDiv);
-        $("#commitBtn").on("click", this.commitResult);
+        $("#commitBtn").click((e) => { this.commitResult(); } );
+    }
 
+    private initializeTimerDiv() {
         this.timerDiv = document.createElement("div");
         this.timerDiv.id = "timerDiv";
         this.content.appendChild(this.timerDiv);
         // this.initializeHTMLElement(this.timerDiv, "div", "timerDiv", null, this.content);
-        this.initializeHTMLElement(this.timeSpan, "span", "timeSpan", null, this.timerDiv);
-        // // TODO Timer
+        this.initializeHTMLElement(this.timeSpan, "span", "timeSpan", "10:00", this.timerDiv);
+        this.timerCountdown = 10 * 60 * 1000;
         this.initializeHTMLElement(this.startTimerButton, "button", "startTimerBtn", "Start", this.timerDiv);
-        $("#startTimerBtn").on("click", this.startTimer);
+        $("#startTimerBtn").click(() => this.startTimer());
         this.initializeHTMLElement(this.stopTimerButton, "button", "stopTimerBtn", "Stop", this.timerDiv);
-        $("#stopTimerBtn").on("click", this.stopTimer);
+        $("#stopTimerBtn").click(() => this.stopTimer());
+        this.initializeHTMLElement(this.resetTimerButton, "button", "resetTimerBtn", "Reset", this.timerDiv);
+        $("#resetTimerBtn").click(() => this.resetTimer());
     }
 
     private initializeHTMLElement(element: HTMLElement, type: string, id: string, innerText: string, parent: HTMLElement) {
@@ -51,16 +61,30 @@ export class Moderator {
     }
 
     private startTimer() {
-        console.log("Start timer ");
-        // this.timerToken = setInterval(() => this.timeSpan.innerHTML = new Date().toUTCString(), 500);
+        this.timerToken = setInterval(() => {
+            let minutes = Math.floor(this.timerCountdown / 60000);
+            let seconds = this.timerCountdown % 60;
+
+            document.getElementById("timeSpan").innerHTML = minutes.toString() + ":" +  seconds.toString();
+
+            if (this.timerCountdown > 0) {
+                this.timerCountdown--;
+            }
+        }, 1000);
     }
 
     private stopTimer() {
-        console.log("Stop timer");
-        // clearTimeout(this.timerToken);
+        clearTimeout(this.timerToken);
     }
 
     private commitResult() {
         console.log("Commit result");
+        let client = RestClient.getClient();
+    }
+
+    private resetTimer() {
+        this.timerCountdown = 10 * 60 * 1000;
+
+        document.getElementById("timeSpan").innerHTML = "10:00";
     }
 }
