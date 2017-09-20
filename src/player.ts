@@ -1,4 +1,7 @@
  /// <reference types="vss-web-extension-sdk" />
+ import Extension_Data = require("VSS/SDK/Services/ExtensionData");
+ import Q = require("q");
+ import Service = require("VSS/Service");
 
 export class Player {
     element: HTMLElement;
@@ -9,12 +12,11 @@ export class Player {
         this.input = document.createElement("input");
         this.input.id = "vote";
         this.element.appendChild(this.input);
-        // TODO Save on input
-
         $("#vote").bind("input", this.vote);
     }
 
     private vote() {
-        console.log("My vote is : " + $(this).val().toString());
+        // $(this).val()
     }
+
 }
