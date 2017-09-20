@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "supreme-guacamole",
-  "version": "0.1.106",
+  "version": "0.1.107",
   "name": "Planning poker",
   "scopes": ["vso.work_write"],
   "description": "Estimate with your team your coming work.",
@@ -81,29 +81,15 @@
       }
     },
     {
-      "id": "cindyb.supreme-guacamole.queries-hub-tab",
-      "type": "ms.vss-web.tab",
-      "description": "Add a group for moderating planning poker",
-      "targets": [
-        "ms.vss-work-web.query-tabs"
-      ],
-      "properties": {
-        "uri": "static/index.html",
-        "title": "Planning poker",
-        "name": "Planning poker"
-      }
-    },
-    {
-      "id": "cindyb.supreme-guacamole.work-item-form-group",
-      "type": "ms.vss-work-web.work-item-form-group",
+      "id": "cindyb.supreme-guacamole.sample-work-item-form-page",
+      "type": "ms.vss-work-web.work-item-form-page",
       "description": "Add a group for moderating planning poker",
       "targets": [
         "ms.vss-work-web.work-item-form"
       ],
       "properties": {
         "name": "Planning poker",
-        "uri": "static/index.html",
-        "height": 600
+        "uri": "static/index.html"
       }
 
     }
