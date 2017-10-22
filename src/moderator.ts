@@ -3,6 +3,8 @@ import RestClient = require("TFS/WorkItemTracking/RestClient");
 import Contracts = require("TFS/WorkItemTracking/Contracts");
 import Extension_Data = require("VSS/SDK/Services/ExtensionData");
 import Q = require("q");
+import Sessions = require("./session");
+import Service = require("VSS/Service");
 
 export class Moderator {
     commitButton: HTMLElement;
@@ -17,11 +19,13 @@ export class Moderator {
     timerToken: number;
     timeSpan: HTMLElement;
     voteResults: HTMLElement;
+    votingSession: Sessions.Session;
 
-    constructor(element: HTMLElement) {
+    constructor(element: HTMLElement, votingSession: Sessions.Session) {
         this.content = element;
         this.initializeResultsDiv();
         this.initializeTimerDiv();
+        this.votingSession = votingSession;
     }
 
     private initializeResultsDiv() {

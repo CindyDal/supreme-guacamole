@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "supreme-guacamole",
-  "version": "0.1.107",
+  "version": "0.1.118",
   "name": "Planning poker",
   "scopes": ["vso.work_write"],
   "description": "Estimate with your team your coming work.",

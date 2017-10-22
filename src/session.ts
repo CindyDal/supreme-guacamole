@@ -2,12 +2,12 @@
 import Service = require("VSS/Service");
 import Extension_Data = require("VSS/SDK/Services/ExtensionData");
 
-export class Session{
+export class Session {
 
+    private id: string;
     private name: string;
-    
-    static getInstance() {
-        // GetDocument
-    }
 
+    constructor() {
+        this.id = "MyDocumentId";
+    }
 }
